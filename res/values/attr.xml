@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<attr name="qqRightPadding" format="dimension"></attr>
+	<attr name="qqheightPadding" format="dimension"></attr>
+    <declare-styleable name="SlidingMenuSelf">
+        <attr name="qqRightPadding"></attr>
+        <attr name="qqheightPadding"></attr>
+    </declare-styleable>
+
+</resources>
