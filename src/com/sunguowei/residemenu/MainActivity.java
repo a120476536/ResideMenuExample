@@ -13,7 +13,13 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.sunguowei.callback.CallBack;
-
+/**
+ * 仿QQ双侧侧滑效果
+ * @author 有点凉了
+ * QQ群：123869487
+ * 求基友共同进步，求大神入群指点
+ *
+ */
 public class MainActivity extends SlidingFragmentActivity implements OnClickListener,CallBack/*implements OnGestureListener*/ {
 	private static final String TAG="MainActivity";
     private Fragment mContent;
@@ -36,9 +42,9 @@ public class MainActivity extends SlidingFragmentActivity implements OnClickList
         main_one = (TextView) findViewById(R.id.main_one);
         button_main_open_left.setOnClickListener(this);
         button_main_open_right.setOnClickListener(this);
-        setBehindContentView(R.layout.menu_frame);
+        setBehindContentView(R.layout.menu_frame);//加载左侧界面
         getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new MenuFragment()).commit();
-        //主界面
+        //主界面动画
         mTransformer = new CanvasTransformer() {
 			
 			@Override
@@ -58,8 +64,11 @@ public class MainActivity extends SlidingFragmentActivity implements OnClickList
                         canvas.getHeight() / 2);           
 			}
 		};
+		/**
+		 * 以下是slidingmenu惯用操作
+		 */
         sm = getSlidingMenu();
-        sm.setSecondaryMenu(R.layout.menu_frame2);
+        sm.setSecondaryMenu(R.layout.menu_frame2);//加载右侧界面
         getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame2, new MenuFragment2()).commit();
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(false);
